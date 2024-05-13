@@ -1,0 +1,25 @@
+.link-card {
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .link-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .content {
+    padding: 16px;
+  }
+  
+  .content h2 {
+    margin-top: 0;
+  }
