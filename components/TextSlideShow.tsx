@@ -4,7 +4,7 @@ import ImageComponent from './ImageComponent';
 import ControlsComponent from './ControlsComponent';
 import IndicatorsComponent from './IndicatorsComponent';
 
-import { useSlideShow, useDocumentMeta } from "../../hooks/TextSlideShowHooks";
+import { useSlideShow, useDocumentMeta } from "../hooks/TextSlideShowHooks";
 
 interface TextSlideshowProps {
     title?: string;
