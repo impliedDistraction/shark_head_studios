@@ -19,7 +19,7 @@ const CodeProjectDisplay: React.FC<CodeProjectProps> = ({
   imageUrl,
   description,
   releaseDate,
-  platforms,
+  platforms = [],
   link,
 }) => {
   // Format date using toLocaleDateString for better internationalization.
