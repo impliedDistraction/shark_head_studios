@@ -1,0 +1,25 @@
+.glitch::before,
+.glitch::after {
+  /* Other styles remain */
+  animation-name: glitch-skew;
+}
+
+/* Define only one keyframe and try to control variations via CSS Variables */
+@keyframes glitch-skew {
+  0% {
+    transform: skew(0deg);
+  }
+  10% {
+    transform: skew(var(--skew-degrees, 5deg));
+  }
+  20% {
+    transform: skew(calc(var(--skew-degrees, 5deg) * -1));
+  }
+  30% {
+    transform: skew(var(--skew-degrees, 5deg));
+  }
+  40%,
+  100% {
+    transform: skew(0);
+  }
+}

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from 'next/link';
+import LinkCard from "./components/LinkCard";
 
 export default function Home() {
   return (
@@ -23,18 +24,13 @@ export default function Home() {
       </div>
 
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-      <Link href="/about">
-        <a
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            About <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">-&gt;</span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore.
-          </p>
-        </a>
-      </Link>
+      <LinkCard 
+        title={"Test Subject (2013)"} 
+        description={"Help Beaker escape the Mad Scientist's experiments!"} 
+        images={[{ src: "/public/images/beaker.webp", alt: "Image of Beaker"}, { src: "/public/images/maze.webp", alt: "Image of a Maze"}, { src: "/public/images/scientist.webp", alt: "Image of a Mad Scientist"}]} 
+        redirectTo={"about"}      
+      >
+      </LinkCard>
 
       </div>
     </main>

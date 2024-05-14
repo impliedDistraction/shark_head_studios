@@ -1,25 +1,46 @@
+:root {
+    --border-color: #ddd;
+    --border-radius: 8px;
+    --transition-speed: 0.2s;
+    --content-padding: 16px;
+}
+
 .link-card {
     cursor: pointer;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
     overflow: hidden;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .link-card:hover {
+    transition: transform var(--transition-speed) ease-in-out;
+}
+
+.link-card:hover,
+.link-card:focus { /* Focus state for accessibility */
+    outline: none;
     transform: scale(1.03);
-  }
-  
-  .image-container img {
-    width: 100%;
-    height: auto;
+}
+
+.image-container img {
+    width: 100%; /* This might be redundant with next/image */
+    height: auto; /* Consider aspect ratio control if necessary */
     display: block;
-  }
-  
-  .content {
-    padding: 16px;
-  }
-  
-  .content h2 {
+}
+
+.content {
+    padding: var(--content-padding);
+}
+
+.content h2 {
     margin-top: 0;
-  }
+    /* Responsive font size or other properties */
+}
+
+/* Example of a responsive design approach */
+@media (max-width: 768px) {
+    .content {
+        padding: calc(var(--content-padding) / 2);
+    }
+    
+    .content h2 {
+        font-size: smaller; /* Adjust based on design */
+    }
+}
