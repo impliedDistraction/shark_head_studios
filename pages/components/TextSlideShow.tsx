@@ -71,3 +71,5 @@ const TextSlideshow: React.FC<TextSlideshowProps> = ({ title, imageSrc, paragrap
         </div>
     );
 };
+
+export default TextSlideshow;
