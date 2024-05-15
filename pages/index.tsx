@@ -26,7 +26,7 @@ export default function Home() {
       <LinkCard 
         title={"Test Subject (2013)"} 
         description={"Help Beaker escape the Mad Scientist's experiments!"} 
-        images={[{ src: "/public/images/beaker.webp", alt: "Image of Beaker"}, { src: "/public/images/maze.webp", alt: "Image of a Maze"}, { src: "/public/images/scientist.webp", alt: "Image of a Mad Scientist"}]} 
+        images={[{ src: "/images/beaker.webp", alt: "Image of Beaker"}, { src: "/images/maze.webp", alt: "Image of a Maze"}, { src: "/images/scientist.webp", alt: "Image of a Mad Scientist"}]} 
         redirectTo={"about"}      
       >
       </LinkCard>
