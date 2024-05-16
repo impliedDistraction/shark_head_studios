@@ -1,46 +1,46 @@
-:root {
-    --border-color: #ddd;
-    --border-radius: 8px;
-    --transition-speed: 0.2s;
-    --content-padding: 16px;
-}
-
+/* LinkCard.css */
 .link-card {
+    display: flex;
+    flex-direction: column;
     cursor: pointer;
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Rounded edges */
     overflow: hidden;
-    transition: transform var(--transition-speed) ease-in-out;
-}
-
-.link-card:hover,
-.link-card:focus { /* Focus state for accessibility */
-    outline: none;
-    transform: scale(1.03);
-}
-
-.image-container img {
-    width: 100%; /* This might be redundant with next/image */
-    height: auto; /* Consider aspect ratio control if necessary */
-    display: block;
-}
-
-.content {
-    padding: var(--content-padding);
-}
-
-.content h2 {
-    margin-top: 0;
-    /* Responsive font size or other properties */
-}
-
-/* Example of a responsive design approach */
-@media (max-width: 768px) {
-    .content {
-        padding: calc(var(--content-padding) / 2);
-    }
-    
-    .content h2 {
-        font-size: smaller; /* Adjust based on design */
-    }
-}
+    width: auto; /* Adjust width as needed */
+    max-width: 500px; /* Set a max-width if necessary */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    outline: 2px solid rgba(0, 0, 0, 0.1); /* Outline */
+    transition: transform 0.2s, box-shadow 0.2s; /* Added for a subtle hover effect */
+  }
+  
+  .link-card:hover {
+    transform: scale(1.02); /* Subtle scaling effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect on hover */
+  }
+  
+  .image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .content {
+    padding: 10px; /* Adjust padding as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .content h2 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    text-align: center; /* Center text for better appearance */
+  }
+  
+  .content p {
+    margin: 0;
+    font-size: 1em;
+    text-align: center; /* Center text for better appearance */
+  }
+  
