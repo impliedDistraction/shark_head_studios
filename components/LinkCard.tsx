@@ -1,21 +1,9 @@
 import React, { useMemo } from 'react';
 import Image from 'next/image';
-import Slider from 'react-slick';
 import { useRouter } from 'next/router';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import './LinkCard.css';
 
 const DEFAULT_IMAGE = { src: '/path/to/default/image.jpg', alt: 'Default Image', maxWidth: 500, maxHeight: 300 };
-
-const sliderSettings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: true,
-};
 
 interface ImageProps {
   src: string;
@@ -41,23 +29,21 @@ const LinkCard: React.FC<LinkCardProps> = ({ title, description, images, redirec
   return (
     <div className="link-card" onClick={() => router.push(redirectTo)}>
       <div className="image-container">
-        <Slider {...sliderSettings}>
-          {imagesToDisplay.map((image, index) => (
-            <div 
-              key={`${image.src}-${index}`} 
-              className="image-wrapper" 
-              style={{ maxWidth: image.maxWidth, maxHeight: image.maxHeight }}
-            >
-              <Image 
-                src={image.src} 
-                alt={image.alt} 
-                layout="responsive" 
-                width={image.maxWidth || 500} 
-                height={image.maxHeight || 300} 
-              />
-            </div>
-          ))}
-        </Slider>
+        {imagesToDisplay.map((image, index) => (
+          <div 
+            key={`${image.src}-${index}`} 
+            className="image-wrapper" 
+            style={{ maxWidth: image.maxWidth, maxHeight: image.maxHeight }}
+          >
+            <Image 
+              src={image.src} 
+              alt={image.alt} 
+              layout="responsive" 
+              width={image.maxWidth || 500} 
+              height={image.maxHeight || 300} 
+            />
+          </div>
+        ))}
       </div>
       <div className="content">
         <h2>{title}</h2>
