@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './LinkCard.css';
 
-const DEFAULT_IMAGE = { src: '/path/to/default/image.jpg', alt: 'Default Image' };
+const DEFAULT_IMAGE = { src: '/path/to/default/image.jpg', alt: 'Default Image', maxWidth: 500, maxHeight: 300 };
 
 const sliderSettings = {
   dots: true,
@@ -20,6 +20,8 @@ const sliderSettings = {
 interface ImageProps {
   src: string;
   alt: string;
+  maxWidth?: number;
+  maxHeight?: number;
 }
 
 interface LinkCardProps {
@@ -41,8 +43,8 @@ const LinkCard: React.FC<LinkCardProps> = ({ title, description, images, redirec
       <div className="image-container">
         <Slider {...sliderSettings}>
           {imagesToDisplay.map((image, index) => (
-            <div key={`${image.src}-${index}`}>
-              <Image src={image.src} alt={image.alt} width={500} height={300} layout="responsive" />
+            <div key={`${image.src}-${index}`} style={{ maxWidth: image.maxWidth, maxHeight: image.maxHeight }}>
+              <Image src={image.src} alt={image.alt} layout="responsive" width={image.maxWidth} height={image.maxHeight} />
             </div>
           ))}
         </Slider>

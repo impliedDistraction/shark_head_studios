@@ -25,6 +25,13 @@
     align-items: center;
   }
   
+  .image-container > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%; /* Ensures the image doesn't exceed the container's width */
+  }
+  
   .content {
     padding: 10px; /* Adjust padding as needed */
     display: flex;
