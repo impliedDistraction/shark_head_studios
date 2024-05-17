@@ -32,7 +32,6 @@ interface LinkCardProps {
 const LinkCard: React.FC<LinkCardProps> = ({ title, description, images, redirectTo }) => {
   const router = useRouter();
 
-  // Calculate images to display only when images prop changes
   const imagesToDisplay = useMemo(() => {
     return images?.length ? images : [DEFAULT_IMAGE];
   }, [images]);
@@ -43,7 +42,7 @@ const LinkCard: React.FC<LinkCardProps> = ({ title, description, images, redirec
         <Slider {...sliderSettings}>
           {imagesToDisplay.map((image, index) => (
             <div key={`${image.src}-${index}`}>
-              <Image src={image.src} alt={image.alt} width={500} height={300} layout='responsive' />
+              <Image src={image.src} alt={image.alt} width={500} height={300} layout="responsive" />
             </div>
           ))}
         </Slider>
