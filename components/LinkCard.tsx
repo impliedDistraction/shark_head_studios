@@ -43,8 +43,18 @@ const LinkCard: React.FC<LinkCardProps> = ({ title, description, images, redirec
       <div className="image-container">
         <Slider {...sliderSettings}>
           {imagesToDisplay.map((image, index) => (
-            <div key={`${image.src}-${index}`} style={{ maxWidth: image.maxWidth, maxHeight: image.maxHeight }}>
-              <Image src={image.src} alt={image.alt} layout="responsive" width={image.maxWidth} height={image.maxHeight} />
+            <div 
+              key={`${image.src}-${index}`} 
+              className="image-wrapper" 
+              style={{ maxWidth: image.maxWidth, maxHeight: image.maxHeight }}
+            >
+              <Image 
+                src={image.src} 
+                alt={image.alt} 
+                layout="responsive" 
+                width={image.maxWidth || 500} 
+                height={image.maxHeight || 300} 
+              />
             </div>
           ))}
         </Slider>
