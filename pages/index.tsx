@@ -1,31 +1,83 @@
 import Image from "next/image";
+import styled, { keyframes } from "styled-components";
 import Logo from "../components/Logo";
 import LinkCard from "../components/LinkCard";
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const HeroSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+  color: #fff;
+`;
+
+const HeroHeading = styled.h1`
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: ${fadeIn} 2s ease-out;
+`;
+
+const HeroDescription = styled.p`
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  animation: ${fadeIn} 2.5s ease-out;
+`;
+
+const HeroButton = styled.a`
+  padding: 10px 20px;
+  background-color: #ff4081;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  animation: ${fadeIn} 3s ease-out;
+
+  &:hover {
+    background-color: #e91e63;
+  }
+`;
+
+const PageContainer = styled.main`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 24px;
+  background: #f0f0f0;
+`;
+
+const Section = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+`;
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Dive into our games at&nbsp;
-          <code className="font-mono font-bold">Shark Head Studios</code>
-        </p>
-      </div>
+    <PageContainer>
+      <HeroSection>
+        <Logo />
+        <HeroHeading>Welcome to Shark Head Studios</HeroHeading>
+        <HeroDescription>Creating cutting-edge games with a graffiti twist.</HeroDescription>
+        <HeroButton href="#games">Explore Our Games</HeroButton>
+      </HeroSection>
 
-      <Logo />
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/shark-head-logo.svg"
-          alt="Shark Head Studios Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
+      <Section id="games">
         <LinkCard
           title={"Test Subject (2013)"}
           description={"Help Beaker escape the Mad Scientist's experiments!"}
@@ -36,7 +88,7 @@ export default function Home() {
           ]}
           redirectTo={"about"}
         />
-      </div>
-    </main>
+      </Section>
+    </PageContainer>
   );
 }
