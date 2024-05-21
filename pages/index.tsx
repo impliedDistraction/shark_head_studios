@@ -1,7 +1,13 @@
+import React, { useEffect } from 'react';
 import Image from "next/image";
 import styled, { keyframes } from "styled-components";
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import Logo from "../components/Logo";
+import AnimatedSection from "../components/AnimatedSection";
 import LinkCard from "../components/LinkCard";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const fadeIn = keyframes`
   from {
@@ -67,7 +73,31 @@ const Section = styled.section`
   margin-bottom: 40px;
 `;
 
-export default function Home() {
+const Home: React.FC = () => {
+  useEffect(() => {
+    gsap.to('body', {
+      opacity: 1,
+      duration: 1,
+      ease: 'power1.out',
+    });
+
+    gsap.fromTo(
+      'main',
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: 'main',
+          start: 'top 80%',
+          end: 'bottom 20%',
+          toggleActions: 'play none none reverse',
+        },
+      }
+    );
+  }, []);
+
   return (
     <PageContainer>
       <HeroSection>
@@ -76,6 +106,8 @@ export default function Home() {
         <HeroDescription>Creating cutting-edge games with a graffiti twist.</HeroDescription>
         <HeroButton href="#games">Explore Our Games</HeroButton>
       </HeroSection>
+
+      <AnimatedSection />
 
       <Section id="games">
         <LinkCard
@@ -89,6 +121,10 @@ export default function Home() {
           redirectTo={"about"}
         />
       </Section>
+
+      <AnimatedSection />
     </PageContainer>
   );
-}
+};
+
+export default Home;
