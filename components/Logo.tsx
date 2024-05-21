@@ -42,7 +42,7 @@ export const LogoContainer = styled.div`
 const Logo: React.FC = () => {
   return (
     <LogoContainer>
-      <Image src="/images/logo.webp" alt="Shark Head Studios Logo" width={200} height={200} priority />
+      <Image src="/images/logo.png" alt="Shark Head Studios Logo" width={500} height={300} priority />
     </LogoContainer>
   );
 };
