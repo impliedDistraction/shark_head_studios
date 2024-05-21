@@ -80,6 +80,8 @@ const Box = styled.div`
   color: #fff;
   font-size: 1.5rem;
   font-weight: bold;
+  flex: 1;
+  display: flex;
 `;
 
 const Home: React.FC = () => {

@@ -1,78 +1,79 @@
 /* LinkCard.css */
 .link-card {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    border: 1px solid #ddd;
-    border-radius: 10px; /* Rounded edges */
-    overflow: hidden;
-    width: auto; /* Adjust width as needed */
-    max-width: 500px; /* Set a max-width if necessary */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
-    outline: 2px solid rgba(0, 0, 0, 0.1); /* Outline */
-    transition: transform 0.2s, box-shadow 0.2s; /* Added for a subtle hover effect */
-  }
-  
-  .link-card:hover {
-    transform: scale(1.02); /* Subtle scaling effect on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect on hover */
-  }
-  
-  .image-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .image-wrapper {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .content {
-    padding: 10px; /* Adjust padding as needed */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .content h2 {
-    margin: 10px 0;
-    font-size: 1.2em;
-    text-align: center; /* Center text for better appearance */
-  }
-  
-  .content p {
-    margin: 0;
-    font-size: 1em;
-    text-align: center; /* Center text for better appearance */
-  }
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 10px; /* Rounded edges */
+  overflow: hidden;
+  width: 100%; /* Adjust width to take full container space */
+  height: 100%; /* Adjust height to take full container space */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  outline: 2px solid rgba(0, 0, 0, 0.1); /* Outline */
+  transition: transform 0.2s, box-shadow 0.2s; /* Added for a subtle hover effect */
+}
 
-  .toggle-button {
-    background-color: #ff4081;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .toggle-button:hover {
-    background-color: #e91e63;
-  }
-  
-  .dropdown {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-  }
-  
-  .dropdown.visible {
-    max-height: 200px; /* Adjust as needed */
-  }
-  
+.link-card:hover {
+  transform: scale(1.02); /* Subtle scaling effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect on hover */
+}
+
+.image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  padding: 10px; /* Adjust padding as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* Ensure content is spaced within */
+  flex: 1; /* Allow content to grow and take available space */
+}
+
+.content h2 {
+  margin: 10px 0;
+  font-size: 1.2em;
+  text-align: center; /* Center text for better appearance */
+}
+
+.content p {
+  margin: 0;
+  font-size: 1em;
+  text-align: center; /* Center text for better appearance */
+}
+
+.toggle-button {
+  background-color: #ff4081;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.toggle-button:hover {
+  background-color: #e91e63;
+}
+
+.dropdown {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.dropdown.visible {
+  max-height: 200px; /* Adjust as needed */
+}
