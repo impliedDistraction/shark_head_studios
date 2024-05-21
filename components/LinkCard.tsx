@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import './LinkCard.css';
@@ -15,16 +15,23 @@ interface ImageProps {
 interface LinkCardProps {
   title: string;
   description: string;
+  additionalInfo?: string;
   images?: ImageProps[];
   redirectTo: string;
 }
 
-const LinkCard: React.FC<LinkCardProps> = ({ title, description, images, redirectTo }) => {
+const LinkCard: React.FC<LinkCardProps> = ({ title, description, additionalInfo, images, redirectTo }) => {
+  const [isDropdownVisible, setDropdownVisible] = useState(false);
   const router = useRouter();
 
   const imagesToDisplay = useMemo(() => {
     return images?.length ? images : [DEFAULT_IMAGE];
   }, [images]);
+
+  const handleToggleDropdown = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setDropdownVisible(!isDropdownVisible);
+  };
 
   return (
     <div className="link-card" onClick={() => router.push(redirectTo)}>
@@ -48,6 +55,16 @@ const LinkCard: React.FC<LinkCardProps> = ({ title, description, images, redirec
       <div className="content">
         <h2>{title}</h2>
         <p>{description}</p>
+        {additionalInfo && (
+          <button className="toggle-button" onClick={handleToggleDropdown}>
+            {isDropdownVisible ? 'Show Less' : 'Show More'}
+          </button>
+        )}
+        {additionalInfo && (
+          <div className={`dropdown ${isDropdownVisible ? 'visible' : ''}`}>
+            <p>{additionalInfo}</p>
+          </div>
+        )}
       </div>
     </div>
   );
