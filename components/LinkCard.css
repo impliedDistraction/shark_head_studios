@@ -51,4 +51,28 @@
     font-size: 1em;
     text-align: center; /* Center text for better appearance */
   }
+
+  .toggle-button {
+    background-color: #ff4081;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .toggle-button:hover {
+    background-color: #e91e63;
+  }
+  
+  .dropdown {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+  
+  .dropdown.visible {
+    max-height: 200px; /* Adjust as needed */
+  }
   
