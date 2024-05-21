@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from "next/image";
 import styled, { keyframes } from "styled-components";
 import { gsap } from 'gsap';
@@ -34,13 +34,11 @@ const HeroSection = styled.section`
 const HeroHeading = styled.h1`
   font-size: 3rem;
   margin-bottom: 20px;
-  animation: ${fadeIn} 2s ease-out;
 `;
 
 const HeroDescription = styled.p`
   font-size: 1.2rem;
   margin-bottom: 30px;
-  animation: ${fadeIn} 2.5s ease-out;
 `;
 
 const HeroButton = styled.a`
@@ -51,7 +49,6 @@ const HeroButton = styled.a`
   font-weight: bold;
   border-radius: 5px;
   transition: background-color 0.3s;
-  animation: ${fadeIn} 3s ease-out;
 
   &:hover {
     background-color: #e91e63;
@@ -87,6 +84,9 @@ const Box = styled.div`
 `;
 
 const Home: React.FC = () => {
+  const heroHeadingRef = useRef<HTMLHeadingElement>(null);
+  const heroDescriptionRef = useRef<HTMLParagraphElement>(null);
+
   useEffect(() => {
     gsap.to('body', {
       opacity: 1,
@@ -109,14 +109,28 @@ const Home: React.FC = () => {
         },
       }
     );
+
+    gsap.fromTo(
+      heroHeadingRef.current,
+      { opacity: 0, y: -50 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power1.out', delay: 0.5 }
+    );
+
+    gsap.fromTo(
+      heroDescriptionRef.current,
+      { opacity: 0, y: -50 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power1.out', delay: 1 }
+    );
   }, []);
 
   return (
     <PageContainer>
       <HeroSection>
         <Logo />
-        <HeroHeading>Welcome to Shark Head Studios</HeroHeading>
-        <HeroDescription>Creating cutting-edge games with a graffiti twist.</HeroDescription>
+        <HeroHeading ref={heroHeadingRef}>Welcome to Shark Head Studios</HeroHeading>
+        <HeroDescription ref={heroDescriptionRef}>
+          Creating cutting-edge games with a graffiti twist.
+        </HeroDescription>
         <HeroButton href="#games">Explore Our Games</HeroButton>
       </HeroSection>
 
