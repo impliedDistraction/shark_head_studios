@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import Image from "next/image";
 import styled, { keyframes } from "styled-components";
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Logo from "../components/Logo";
 import AnimatedSection from "../components/AnimatedSection";
 import LinkCard from "../components/LinkCard";
@@ -73,6 +73,19 @@ const Section = styled.section`
   margin-bottom: 40px;
 `;
 
+const Box = styled.div`
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  background-color: #ff4081;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+`;
+
 const Home: React.FC = () => {
   useEffect(() => {
     gsap.to('body', {
@@ -107,7 +120,12 @@ const Home: React.FC = () => {
         <HeroButton href="#games">Explore Our Games</HeroButton>
       </HeroSection>
 
-      <AnimatedSection />
+      <AnimatedSection>
+        <Box>Box 1</Box>
+        <Box>Box 2</Box>
+        <Box>Box 3</Box>
+        <Box>Box 4</Box>
+      </AnimatedSection>
 
       <Section id="games">
         <LinkCard
@@ -122,7 +140,12 @@ const Home: React.FC = () => {
         />
       </Section>
 
-      <AnimatedSection />
+      <AnimatedSection>
+        <Box>Box A</Box>
+        <Box>Box B</Box>
+        <Box>Box C</Box>
+        <Box>Box D</Box>
+      </AnimatedSection>
     </PageContainer>
   );
 };

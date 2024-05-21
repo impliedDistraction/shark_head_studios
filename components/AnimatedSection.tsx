@@ -1,4 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+// components/AnimatedSection.tsx
+
+import React, { useEffect, useRef, ReactNode } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styled from 'styled-components';
@@ -14,14 +16,18 @@ const Section = styled.section`
   border-bottom: 1px solid #ddd;
 `;
 
-const Box = styled.div`
-  width: 100px;
-  height: 100px;
-  margin: 20px;
-  background-color: #ff4081;
+const BoxContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 `;
 
-const AnimatedSection: React.FC = () => {
+interface AnimatedSectionProps {
+  children: ReactNode;
+}
+
+const AnimatedSection: React.FC<AnimatedSectionProps> = ({ children }) => {
   const boxesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -48,12 +54,9 @@ const AnimatedSection: React.FC = () => {
 
   return (
     <Section>
-      <div ref={boxesRef}>
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-      </div>
+      <BoxContainer ref={boxesRef}>
+        {children}
+      </BoxContainer>
     </Section>
   );
 };
