@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import Image from "next/image";
 import styled, { keyframes } from "styled-components";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -137,22 +136,21 @@ const Home: React.FC = () => {
       <AnimatedSection>
         <Box>Box 1</Box>
         <Box>Box 2</Box>
-        <Box>Box 3</Box>
+        <Box>
+          <LinkCard
+            title={"Test Subject (2013)"}
+            description={"Help Beaker escape the Mad Scientist's experiments!"}
+            additionalInfo={"Additional information about the game, including features, updates, and developer notes."}
+            images={[
+              { src: "/images/beaker.webp", alt: "Image of Beaker", maxWidth: 500, maxHeight: 300 },
+              { src: "/images/maze.webp", alt: "Image of a Maze", maxWidth: 500, maxHeight: 300 },
+              { src: "/images/scientist.webp", alt: "Image of a Mad Scientist", maxWidth: 500, maxHeight: 300 }
+            ]}
+            redirectTo={"about"}
+          />
+        </Box>
         <Box>Box 4</Box>
       </AnimatedSection>
-
-      <Section id="games">
-        <LinkCard
-          title={"Test Subject (2013)"}
-          description={"Help Beaker escape the Mad Scientist's experiments!"}
-          images={[
-            { src: "/images/beaker.webp", alt: "Image of Beaker", maxWidth: 500, maxHeight: 300 },
-            { src: "/images/maze.webp", alt: "Image of a Maze", maxWidth: 500, maxHeight: 300 },
-            { src: "/images/scientist.webp", alt: "Image of a Mad Scientist", maxWidth: 500, maxHeight: 300 }
-          ]}
-          redirectTo={"about"}
-        />
-      </Section>
 
       <AnimatedSection>
         <Box>Box A</Box>
