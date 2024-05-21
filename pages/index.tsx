@@ -70,8 +70,8 @@ const Section = styled.section`
 `;
 
 const Box = styled.div`
-  width: 200px;
-  height: 200px;
+  width: 300px; /* Increased width */
+  height: 400px; /* Increased height */
   margin: 20px;
   background-color: #ff4081;
   display: flex;
@@ -80,7 +80,6 @@ const Box = styled.div`
   color: #fff;
   font-size: 1.5rem;
   font-weight: bold;
-  flex: 1;
   display: flex;
 `;
 
