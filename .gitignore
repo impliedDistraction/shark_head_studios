@@ -36,3 +36,4 @@ yarn-error.log*
 next-env.d.ts
 combat_log.csv
 *.csv
+event_log.json

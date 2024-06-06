@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import styles from './LinkCard.module.css'; 
+import  './LinkCard.css'; 
 
 interface ImageProps {
   src: string;

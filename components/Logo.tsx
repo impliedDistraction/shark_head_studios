@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef, useEffect } from "react";
 import styled, { keyframes } from 'styled-components';
-import Image from 'next/image';
+import Image from "next/image";
+import { gsap } from "gsap";
 
 /**
  * Keyframe animation for fading in and moving up from below.
@@ -17,21 +18,6 @@ const fadeIn = keyframes`
 `;
 
 /**
- * Keyframe animation for floating effect.
- */
-const float = keyframes`
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-`;
-
-/**
  * Styled component for the logo container.
  */
 const LogoContainer = styled.div`
@@ -43,30 +29,41 @@ const LogoContainer = styled.div`
   will-change: opacity, transform;
 `;
 
-/**
- * Styled component for the floating image.
- */
-const FloatingImage = styled(Image)`
-  width: 200px;
-  height: auto;
-  animation: ${float} 3s ease-in-out infinite;
-  will-change: transform;
-`;
+const FloatingImage = styled(Image)``;
 
-/**
- * Logo component.
- * Displays the Shark Head Studios logo with floating and fade-in animations.
- * 
- * @component
- * @example
- * return (
- *   <Logo />
- * )
- */
 const Logo: React.FC = () => {
+  const logoContainerRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+
+    tl.from(logoContainerRef.current, {
+      opacity: 0,
+      y: -20,
+      duration: 2,
+      ease: "power2.out",
+    });
+
+    tl.to(imageRef.current, {
+      y: -10,
+      repeat: -1,
+      yoyo: true,
+      duration: 3,
+      ease: "power1.inOut",
+    });
+  }, []);
+
   return (
-    <LogoContainer>
-      <FloatingImage src="/images/logo.png" alt="Shark Head Studios Logo" width={500} height={300} priority />
+    <LogoContainer ref={logoContainerRef}>
+      <FloatingImage 
+        src="/images/logo.png" 
+        alt="Logo" 
+        ref={imageRef}
+        width={500} 
+        height={300} 
+        priority 
+      />
     </LogoContainer>
   );
 };
